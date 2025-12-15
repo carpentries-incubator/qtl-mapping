@@ -195,6 +195,7 @@ Num. Perm. | Mean | Std. Dev.
    1000    | 3.86 | 0.064
    
 ![We have completed these steps in the mapping workflow.](./fig/mapping-workflow-permutation.png){alt="A diagram showing mapping steps including calculating genotype probabilities, calculating kinship, performing a genome scan, finding QTL peaks, and performing a permutation test."}
+
 As with `scan1()`, you can speed up the calculations on a multi-core machine by 
 specifying the argument `cores`. With `cores=0`, the number of available cores 
 will be detected via `parallel::detectCores()`. Otherwise, specify the number of 
