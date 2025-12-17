@@ -77,10 +77,10 @@ threshold. We will use the 95% threshold from the permutations in the previous
 lesson.
 
 ```{r find_peaks}
-find_peaks(scan1_output = lod_add_loco, 
-           map          = cross$pmap, 
-           threshold    = thr, 
-           prob         = 0.95, 
+find_peaks(scan1_output   = lod_add_loco, 
+           map            = cross$pmap, 
+           threshold      = thr, 
+           prob           = 0.95, 
            expand2markers = FALSE)
 ```
 
