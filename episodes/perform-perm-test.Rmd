@@ -287,13 +287,13 @@ As with `scan1`, we can use `scan1perm` with binary traits, using the argument
 the other arguments can be applied.
 
 ```{r scan1perm_binary}
-perm_bin <- scan1perm(genoprobs = probs, 
-                      pheno     = cross$pheno[,"agouti_tan",drop = FALSE], 
-                      addcovar  = addcovar, 
-                      n_perm    = 1000, 
-                      perm_Xsp  = TRUE, 
+perm_bin <- scan1perm(genoprobs   = probs, 
+                      pheno       = cross$pheno[,"agouti_tan",drop = FALSE], 
+                      addcovar    = addcovar, 
+                      n_perm      = 1000, 
+                      perm_Xsp    = TRUE, 
                       chr_lengths = chr_lengths(cross$pmap),
-                      model     = "binary")
+                      model       = "binary")
 ```
 
 Here are the estimated 5% and 20% significance thresholds.
