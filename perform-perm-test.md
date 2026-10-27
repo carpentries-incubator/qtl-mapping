@@ -87,7 +87,7 @@ summary(perm_add)
 ``` output
 LOD thresholds (10 permutations)
      log10_insulin_10wk
-0.05               4.04
+0.05               3.89
 ```
 
 The default is to return the 5% significance threshold. Thresholds for other 
@@ -102,8 +102,8 @@ summary(perm_add,
 ``` output
 LOD thresholds (10 permutations)
      log10_insulin_10wk
-0.2                3.23
-0.05               4.04
+0.2                3.29
+0.05               3.89
 ```
 
 What LOD score did you get with 10 permutations at the 5% significance 
@@ -135,7 +135,7 @@ summary(perm_add)
 ``` output
 LOD thresholds (100 permutations)
      log10_insulin_10wk
-0.05               3.89
+0.05                3.8
 ```
 
 What LOD score threshold did you get with 100 permutations? Is it the same as 
@@ -164,7 +164,7 @@ summary(perm_add)
 ``` output
 LOD thresholds (1000 permutations)
      log10_insulin_10wk
-0.05               4.02
+0.05               3.85
 ```
 
 What LOD score threshold did you get with 1,000 permutations? Is it the same as 
@@ -184,7 +184,7 @@ hist(perm_add,
 abline(v = summary(perm_add), col = 'red', lwd = 2)
 ```
 
-<img src="fig/perform-perm-test-rendered-hist_perm-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-perm-test-rendered-hist_perm-1.png" alt="" style="display: block; margin: auto;" />
 
 In the histogram above, you can see that most of the maximum LOD scores fall 
 between 1 and 3.5. This means that we expect LOD scores less than 3.5 to occur 
@@ -221,6 +221,7 @@ Num. Perm. | Mean | Std. Dev.
    1000    | 3.86 | 0.064
    
 ![We have completed these steps in the mapping workflow.](./fig/mapping-workflow-permutation.png){alt="A diagram showing mapping steps including calculating genotype probabilities, calculating kinship, performing a genome scan, finding QTL peaks, and performing a permutation test."}
+
 As with `scan1()`, you can speed up the calculations on a multi-core machine by 
 specifying the argument `cores`. With `cores=0`, the number of available cores 
 will be detected via `parallel::detectCores()`. Otherwise, specify the number of 
@@ -271,13 +272,13 @@ summary(perm_add2,
 ``` output
 Autosome LOD thresholds (1000 permutations)
      log10_insulin_10wk
-0.2                3.18
-0.05               3.81
+0.2                3.20
+0.05               3.91
 
 X chromosome LOD thresholds (14369 permutations)
      log10_insulin_10wk
-0.2                3.11
-0.05               3.84
+0.2                3.08
+0.05               3.77
 ```
 
 ## Estimating Significance Thresholds with the Kinship Matrix
@@ -306,8 +307,8 @@ summary(perm_add_loco,
 ``` output
 LOD thresholds (1000 permutations)
      log10_insulin_10wk
-0.2                3.17
-0.05               3.91
+0.2                3.10
+0.05               3.77
 ```
 
 There is not a large difference in the thresholds. Currently, we are on the
@@ -322,7 +323,7 @@ We ran 1000 permutations of the insulin phenotype and estimated the 0.05
 significance threshold with and without the kinship matrices. We repeated this
 process 100 times and plotted the thresholds below.
 
-![Significance Thresholds with/without Kinship](fig/perm_kinship.png){alt="Comparison of significance thresholds"}
+![Significance Thresholds With and Without Kinship](fig/perm_kinship.png){alt="Comparison of significance thresholds"}
 
 The plot shows that the median significance threshold is the same. The lines
 connecting the points denote matched simulations in which the permutation
@@ -337,13 +338,13 @@ the other arguments can be applied.
 
 
 ``` r
-perm_bin <- scan1perm(genoprobs = probs, 
-                      pheno     = cross$pheno[,"agouti_tan",drop = FALSE], 
-                      addcovar  = addcovar, 
-                      n_perm    = 1000, 
-                      perm_Xsp  = TRUE, 
+perm_bin <- scan1perm(genoprobs   = probs, 
+                      pheno       = cross$pheno[,"agouti_tan",drop = FALSE], 
+                      addcovar    = addcovar, 
+                      n_perm      = 1000, 
+                      perm_Xsp    = TRUE, 
                       chr_lengths = chr_lengths(cross$pmap),
-                      model     = "binary")
+                      model       = "binary")
 ```
 
 Here are the estimated 5% and 20% significance thresholds.
@@ -357,13 +358,13 @@ summary(perm_bin,
 ``` output
 Autosome LOD thresholds (1000 permutations)
      agouti_tan
-0.2        3.18
-0.05       3.87
+0.2        3.21
+0.05       3.86
 
 X chromosome LOD thresholds (14369 permutations)
      agouti_tan
-0.2        3.09
-0.05       3.72
+0.2        3.07
+0.05       3.95
 ```
 
 The code below shuffles the phenotypes so that they no longer match up with the 
@@ -421,8 +422,8 @@ summary(perm_add_loco, alpha = c(0.01, 0.10))
 ``` output
 LOD thresholds (1000 permutations)
      log10_insulin_10wk
-0.01               4.45
-0.1                3.54
+0.01               4.37
+0.1                3.47
 ```
 
 

@@ -93,7 +93,7 @@ plot_coef(x            = eff_chr19,
           legend       = "topleft")
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_coef-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_coef-1.png" alt="" style="display: block; margin: auto;" />
 
 The plot shows effect values on the y-axis and cM values on the x-axis. The
 value of the intercept ($\mu$) appears at the top. The effect of the 
@@ -134,7 +134,7 @@ plot_coef(x       = eff_chr19,
           legend  = "topleft")
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_effects_chr19-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_effects_chr19-1.png" alt="" style="display: block; margin: auto;" />
 
 ::::::::::::::::::::::::::::::::::::: challenge 
 
@@ -184,7 +184,7 @@ plot_coef(x       = blup_chr19,
           legend  = "topleft")
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_blup_chr19-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_blup_chr19-1.png" alt="" style="display: block; margin: auto;" />
 
 In the plot below, we plotted the founder allele effects (solid lines) and the 
 BLUPs (dashed lines). In this case, the effects are not greatly different, but 
@@ -205,7 +205,7 @@ plot_coef(x       = blup_chr19,
           add     = TRUE)
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_blup_chr19_again-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_blup_chr19_again-1.png" alt="" style="display: block; margin: auto;" />
 
 ## Plotting Allele Effects at One Marker
 
@@ -352,7 +352,7 @@ ggplot(data    = mod_eff,
   theme(text = element_text(size = 20))
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_fit1-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_fit1-1.png" alt="" style="display: block; margin: auto;" />
 
 ![We have completed these steps in the mapping workflow.](./fig/mapping-workflow-estimate-effects.png){alt="A diagram showing mapping steps up to estimating QTL effects."}
 ::::::::::::::::::::::::::::::::::::: challenge 
@@ -403,7 +403,7 @@ plot_coef(x       = blup_chr7,
           legend  = "topleft")
 ```
 
-<img src="fig/est-qtl-effects-rendered-challenge5a-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-challenge5a-1.png" alt="" style="display: block; margin: auto;" />
 
 On chromosome 19, the BB and BR genotypes seems to have the same effect. On chromosome 7,
 there is a clear split between the BB, BR, and RR genotypes. Each additional B allele
@@ -451,7 +451,7 @@ ggplot(data    = mod_eff7,
   theme(text = element_text(size = 20))
 ```
 
-<img src="fig/est-qtl-effects-rendered-challenge5d-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-challenge5d-1.png" alt="" style="display: block; margin: auto;" />
 
 On chromosome 19, mice carrying the BB and BR genotypes had almost the same 
 levels of insulin. On chromosome 7, the BB genotype has the highest insulin
@@ -552,7 +552,7 @@ plot_coef(x       = c7effB,
 legend('bottomleft', lwd = 2, col = 1:2, legend = c("additive", "dominance"))
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_add_dom_contrasts-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_add_dom_contrasts-1.png" alt="" style="display: block; margin: auto;" />
 
 In the plot above, the dominance effects remain near zero across the chromosome.
 The additive effects decrease as we move 
@@ -590,7 +590,7 @@ legend('bottomleft', lwd = 2, col = c("black", "red"),
        legend = c("additive", "dominance"))
 ```
 
-<img src="fig/est-qtl-effects-rendered-challenge6b-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-challenge6b-1.png" alt="" style="display: block; margin: auto;" />
 
 In this case, we see that the additive effect adds about 0.094
 and the dominance effect adds about -0.113.
@@ -633,7 +633,7 @@ plot_pxg(geno   = g,
          main   = paste("Insulin vs Chr", chr ,"Genotype"))
 ```
 
-<img src="fig/est-qtl-effects-rendered-plot_pheno_geno_se-1.png" style="display: block; margin: auto;" />
+<img src="fig/est-qtl-effects-rendered-plot_pheno_geno_se-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints 

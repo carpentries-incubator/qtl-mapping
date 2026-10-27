@@ -318,7 +318,7 @@ plot_genoprob(probs = probs,
               main  = rownames(probs[['19']])[1])
 ```
 
-<img src="fig/calc-genoprob-rendered-plot_genoprob-1.png" style="display: block; margin: auto;" />
+<img src="fig/calc-genoprob-rendered-plot_genoprob-1.png" alt="" style="display: block; margin: auto;" />
 
 The coordinates along chromosome 19 are shown on the horizontal axis and the 
 three genotypes are shown on the vertical axis. Higher genotype probabilities 

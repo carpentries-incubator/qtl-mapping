@@ -169,7 +169,7 @@ n_samples <- 50
 heatmap(kinship[1:n_samples, 1:n_samples], symm = TRUE)
 ```
 
-<img src="fig/calc-kinship-rendered-plot_kinship-1.png" style="display: block; margin: auto;" />
+<img src="fig/calc-kinship-rendered-plot_kinship-1.png" alt="" style="display: block; margin: auto;" />
 
 The mice are listed in the same order on both sides of the matrix. The comb-like 
 structures are called "dendrograms" and they indicate how the mice are clustered 
@@ -273,7 +273,7 @@ df |>
     theme(text = element_text(size = 20))
 ```
 
-<img src="fig/calc-kinship-rendered-challenge4-1.png" style="display: block; margin: auto;" />
+<img src="fig/calc-kinship-rendered-challenge4-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 rm(homo, df)

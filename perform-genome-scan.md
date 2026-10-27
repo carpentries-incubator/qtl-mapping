@@ -222,7 +222,7 @@ plot_scan1(lod_add,
            main = 'log(insulin): 10 weeks')
 ```
 
-<img src="fig/perform-genome-scan-rendered-plot_add_lod-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-rendered-plot_add_lod-1.png" alt="" style="display: block; margin: auto;" />
 
 The LOD plot for insulin shows several peaks, with the largest peak on 
 chromosome 2. There are smaller peaks on other chromosomes. Which of these peaks is 
@@ -304,7 +304,7 @@ plot_scan1(lod_add, map = cross$pmap, chr = c(2, 7, 12, 19),
            main = "log(insulin): 10 weeks")
 ```
 
-<img src="fig/perform-genome-scan-rendered-challenge3-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-rendered-challenge3-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -354,7 +354,7 @@ plot_scan1(x    = lod_int,
            main = 'log(insulin): 10 weeks: Sex Interactive')
 ```
 
-<img src="fig/perform-genome-scan-rendered-plot_int-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-rendered-plot_int-1.png" alt="" style="display: block; margin: auto;" />
 
 It is difficult to tell if there is a difference in LOD scores between the 
 additive and interactive scans. To resolve this, we can plot both genome scans
@@ -374,7 +374,7 @@ legend(x = 1000, y = 7.6, legend = c('Additive', 'Interactive'),
        col = c('blue', 'black'), lwd = 2)
 ```
 
-<img src="fig/perform-genome-scan-rendered-plot_add_int_lod-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-rendered-plot_add_int_lod-1.png" alt="" style="display: block; margin: auto;" />
 
 It is still difficult to tell whether any peaks differ by sex. Another way 
 to view the plot is to plot the difference between the interactive and additive
@@ -387,7 +387,7 @@ plot_scan1(x    = lod_int - lod_add,
            main = 'log10(insulin): Interactive - Additive')
 ```
 
-<img src="fig/perform-genome-scan-rendered-plot_add_int_diff_lod-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-rendered-plot_add_int_diff_lod-1.png" alt="" style="display: block; margin: auto;" />
 
 While it was important to look at the effect of sex on the trait, in this 
 experiment, there do not appear to be any sex-specific peaks. Without performing

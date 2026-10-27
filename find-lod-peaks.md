@@ -52,7 +52,7 @@ add_threshold(map        = cross$pmap,
               col        = 'red')
 ```
 
-<img src="fig/find-lod-peaks-rendered-plot_scan1-1.png" style="display: block; margin: auto;" />
+<img src="fig/find-lod-peaks-rendered-plot_scan1-1.png" alt="" style="display: block; margin: auto;" />
 
 To find peaks above a given threshold LOD value, use the function 
 `find_peaks()`. It can also provide Bayesian credible intervals by using the 
@@ -67,10 +67,10 @@ lesson.
 
 
 ``` r
-find_peaks(scan1_output = lod_add_loco, 
-           map          = cross$pmap, 
-           threshold    = thr, 
-           prob         = 0.95, 
+find_peaks(scan1_output   = lod_add_loco, 
+           map            = cross$pmap, 
+           threshold      = thr, 
+           prob           = 0.95, 
            expand2markers = FALSE)
 ```
 

@@ -358,7 +358,7 @@ plot(density(pos), las = 1, lwd = 2, main = "Density of SNPs")
 rug(pos)
 ```
 
-<img src="fig/integrating-gene-expression-rendered-snp_density-1.png" style="display: block; margin: auto;" />
+<img src="fig/integrating-gene-expression-rendered-snp_density-1.png" alt="" style="display: block; margin: auto;" />
 
 From the plot above, we can see that the density of SNPS between B6 and BTBR is
 not uniform. Most of the SNPs lie between 50 and 52 Mb, with less dense 
@@ -595,7 +595,7 @@ plot_scan1(x   = eqtl_chr19,
            main      = symbol)
 ```
 
-<img src="fig/integrating-gene-expression-rendered-plot_1_eqtl-1.png" style="display: block; margin: auto;" />
+<img src="fig/integrating-gene-expression-rendered-plot_1_eqtl-1.png" alt="" style="display: block; margin: auto;" />
 
 This gene seems to have a QTL on chromosome 19 near 52 Mb with a LOD of 34. 
 The insulin QTL is closer to 55 Mb, so this may be a good candidate gene. 
@@ -683,7 +683,7 @@ legend("topleft", legend = c("insluin", symbol),
        col = c('blue', 'black'), lwd = 2)
 ```
 
-<img src="fig/integrating-gene-expression-rendered-plot_insulin_qtl-1.png" style="display: block; margin: auto;" />
+<img src="fig/integrating-gene-expression-rendered-plot_insulin_qtl-1.png" alt="" style="display: block; margin: auto;" />
 
 Why would we prioritize genes with an eQTL in the same location as an insulin
 QTL? If a gene has an eQTL in the same location, there are genetic variants 
@@ -731,7 +731,7 @@ legend("topleft", legend = c("insluin", "mediation"),
        col = c('black', 'blue'), lwd = 2)
 ```
 
-<img src="fig/integrating-gene-expression-rendered-med_plot_10002936879-1.png" style="display: block; margin: auto;" />
+<img src="fig/integrating-gene-expression-rendered-med_plot_10002936879-1.png" alt="" style="display: block; margin: auto;" />
 
 The LOD dropped from 5.477 to 
 2.02. This is a difference
@@ -788,7 +788,7 @@ text(lod_drop$start, lod_drop$lod_drop, labels = lod_drop$gene_name)
 abline(v = peaks_chr19$pos, col = 2)
 ```
 
-<img src="fig/integrating-gene-expression-rendered-plot_mediation-1.png" style="display: block; margin: auto;" />
+<img src="fig/integrating-gene-expression-rendered-plot_mediation-1.png" alt="" style="display: block; margin: auto;" />
 
 In the plot above, we plotted the position of each gene versus the decrease in
 the LOD score (i.e. LOD drop). Genes with the lowest LOD drop are the best 

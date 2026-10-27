@@ -234,7 +234,7 @@ ggplot(data = pheno, mapping = aes(prop.bm.mn.ret)) +
 `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-6-1.png" alt="" style="display: block; margin: auto;" />
 
 The bone marrow MN-RET values do not look normally distributed.
 
@@ -264,7 +264,7 @@ pheno |>
 `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 The log of the bone marrow MN-RET values look more normally distributed.
 
@@ -321,7 +321,7 @@ pheno |>
           legend.position = "none")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-9-1.png" alt="" style="display: block; margin: auto;" />
 
 As you can see, while individual mice have varying micronucleated 
 reticulocytes, there is a dose-dependent increase in micronucleated reticulocytes
@@ -590,7 +590,7 @@ allele probabilities for one sample on chromosome 1.
 plot_genoprob(probs, map, ind = 1, chr = 1, main = "Founder Allele Probabilities")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-19-1.png" alt="" style="display: block; margin: auto;" />
 
 In the plot above, the founder contributions, which range between 0 and 1, are 
 colored from white (= 0) to black (= 1.0). A value of ~0.5 is grey. The markers 
@@ -643,7 +643,7 @@ n_samples <- 50
 heatmap(K[[1]][1:n_samples, 1:n_samples])
 ```
 
-<img src="fig/do_qtl_mapping-rendered-kinship_probs-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-kinship_probs-1.png" alt="" style="display: block; margin: auto;" />
 
 The figure above shows kinship between all pairs of samples. Light yellow 
 indicates low kinship and dark red indicates higher kinship. Orange values 
@@ -763,7 +763,7 @@ plot_scan1(x    = lod,
            main = "Proportion of Micro-nucleated Bone Marrow Reticulocytes")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-qtl_plot-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-qtl_plot-1.png" alt="" style="display: block; margin: auto;" />
 
 It looks like we have a large peak on chromosome 10. 
 
@@ -789,7 +789,7 @@ plot_scan1(x    = lod2,
            main = "(log(Proportion of Micro-nucleated Bone Marrow Reticulocytes)")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-22-1.png" alt="" style="display: block; margin: auto;" />
 
 Using a log transformation increases the LOD increase from about 17 to over 25.
 
@@ -850,7 +850,7 @@ q95     <- quantile(max_lod, probs = 0.95)
 abline(v = q95, col = 'red', lwd = 2)
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-23-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-23-1.png" alt="" style="display: block; margin: auto;" />
 
 In this case, the maximum LOD score is around 9. Most of the values fall 
 between 5 and 6. We have drawn a red line at the 95th percentile of the 
@@ -890,7 +890,7 @@ permuted data.
 hist(x = perms, breaks = 15)
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-24-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 summary(perms)
@@ -899,7 +899,7 @@ summary(perms)
 ``` output
 LOD thresholds (100 permutations)
      log_mnret
-0.05       7.7
+0.05      7.22
 ```
 
 Note that this summary function returns the 95th percentile value of the LOD
@@ -922,7 +922,7 @@ thr <- summary(perms)
 add_threshold(map = map, thresholdA = thr, col = 'red')
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-25-1.png" alt="" style="display: block; margin: auto;" />
 
 The peak on chromosome 10 is well above the red significance line.
 
@@ -1039,7 +1039,7 @@ plot_coefCC(x    = coef10,
             main = "Proportion of Micro-nucleated Bone Marrow Reticulocytes")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-27-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-27-1.png" alt="" style="display: block; margin: auto;" />
 
 The top panel shows the eight founder allele effects (or model coefficients) 
 along chromosome 10. The founder allele effects are centered at zero and the 
@@ -1378,7 +1378,7 @@ the results and plot the genes beneath the association mapping plot.
 hist(pheno$pre.prop.mn.ret)
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-33-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-33-1.png" alt="" style="display: block; margin: auto;" />
 
 Log transform the pre-dose proportion of MN-RETs.
 
@@ -1413,7 +1413,7 @@ plot_scan1(x    = lod_pre,
            main = "Log-Transformed Pre-dose micronucleated reticulocytes")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-37-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-37-1.png" alt="" style="display: block; margin: auto;" />
 
 3. Find peaks above a significance threshold.
 
@@ -1425,7 +1425,7 @@ find_peaks(lod_pre, map, threshold = 8, prob = 0.95)
 ``` output
   lodindex          lodcolumn chr       pos       lod     ci_lo     ci_hi
 1        1 log_pre_prop_mnret   4 132.77875 13.145968 132.77875 134.27938
-2        1 log_pre_prop_mnret  12  75.45433  8.404242  74.14949  77.30552
+2        1 log_pre_prop_mnret  12  75.45433  8.404212  74.14949  77.30552
 ```
 
 4. Calculate and plot BLUPs for the highest peak.
@@ -1444,7 +1444,7 @@ plot_coefCC(x            = coef4,
             main         = "Log-Transformed Pre-dose micronucleated reticulocytes")
 ```
 
-<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-39-1.png" style="display: block; margin: auto;" />
+<img src="fig/do_qtl_mapping-rendered-unnamed-chunk-39-1.png" alt="" style="display: block; margin: auto;" />
 
 5. Perform association mapping in the QTL interval for the highest peak.
 
@@ -1492,48 +1492,51 @@ sessionInfo()
 ```
 
 ``` output
-R version 4.5.2 (2025-10-31)
+R version 4.6.1 (2026-06-24)
 Platform: x86_64-pc-linux-gnu
-Running under: Ubuntu 22.04.5 LTS
+Running under: Ubuntu 24.04.4 LTS
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0  LAPACK version 3.10.0
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
 
 locale:
- [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
- [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
- [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
-[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
-time zone: UTC
+time zone: Etc/UTC
 tzcode source: system (glibc)
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] qtl2convert_0.30 qtl2_0.38        ggbeeswarm_0.7.2 lubridate_1.9.4 
- [5] forcats_1.0.1    stringr_1.5.2    dplyr_1.1.4      purrr_1.1.0     
- [9] readr_2.1.5      tidyr_1.3.1      tibble_3.3.0     ggplot2_4.0.0   
+ [1] qtl2convert_0.36 qtl2_0.46        ggbeeswarm_0.7.3 lubridate_1.9.5 
+ [5] forcats_1.0.1    stringr_1.6.0    dplyr_1.2.1      purrr_1.2.2     
+ [9] readr_2.2.0      tidyr_1.3.2      tibble_3.3.1     ggplot2_4.0.3   
 [13] tidyverse_2.0.0 
 
 loaded via a namespace (and not attached):
- [1] generics_0.1.4      renv_1.1.5          RSQLite_2.4.3      
- [4] stringi_1.8.7       hms_1.1.4           magrittr_2.0.4     
- [7] evaluate_1.0.5      grid_4.5.2          timechange_0.3.0   
-[10] RColorBrewer_1.1-3  fastmap_1.2.0       blob_1.2.4         
-[13] DBI_1.2.3           BiocManager_1.30.27 scales_1.4.0       
-[16] qtl_1.70            cli_3.6.5           rlang_1.1.6        
-[19] bit64_4.6.0-1       withr_3.0.2         cachem_1.1.0       
-[22] yaml_2.3.10         tools_4.5.2         parallel_4.5.2     
-[25] tzdb_0.5.0          memoise_2.0.1       vctrs_0.6.5        
-[28] R6_2.6.1            lifecycle_1.0.4     bit_4.6.0          
-[31] vipor_0.4.7         pkgconfig_2.0.3     beeswarm_0.4.0     
-[34] pillar_1.11.1       gtable_0.3.6        glue_1.8.0         
-[37] data.table_1.17.8   Rcpp_1.1.0          xfun_0.54          
-[40] tidyselect_1.2.1    knitr_1.50          farver_2.1.2       
-[43] labeling_0.4.3      compiler_4.5.2      S7_0.2.0           
+ [1] generics_0.1.4      renv_1.3.0          RSQLite_3.53.3     
+ [4] stringi_1.8.9       hms_1.1.4           magrittr_2.0.5     
+ [7] evaluate_1.0.5      grid_4.6.1          timechange_0.4.0   
+[10] RColorBrewer_1.1-3  fastmap_1.2.0       blob_1.3.0         
+[13] DBI_1.3.0           BiocManager_1.30.27 scales_1.4.0       
+[16] qtl_1.74            cli_3.6.6           rlang_1.3.0        
+[19] bit64_4.8.6         withr_3.0.3         cachem_1.1.0       
+[22] yaml_2.3.12         otel_0.2.0          parallel_4.6.1     
+[25] tools_4.6.1         tzdb_0.5.0          memoise_2.0.1      
+[28] vctrs_0.7.3         R6_2.6.1            lifecycle_1.0.5    
+[31] bit_4.6.0           vipor_0.4.7         pkgconfig_2.0.3    
+[34] beeswarm_0.4.0      pillar_1.11.1       gtable_0.3.6       
+[37] data.table_1.18.6.1 glue_1.8.1          Rcpp_1.1.2         
+[40] xfun_0.62           tidyselect_1.2.1    knitr_1.52         
+[43] farver_2.1.2        labeling_0.4.3      compiler_4.6.1     
+[46] S7_0.2.2           
 ```
 
 ::::::::::::::::::::::::::::::::::::: keypoints 

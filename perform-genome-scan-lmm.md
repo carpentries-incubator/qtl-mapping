@@ -26,12 +26,12 @@ leave-one-chromosome-out (LOCO) method.
 Genetic mapping in mice presents a good example of why accounting for population 
 structure is important.
 
-![Geographical ranges of subspecies in the Mus musculus group. From [*Mouse Genetics: Concepts and Applications*](https://www.informatics.jax.org/silverbook/) by Lee M. Silver, Oxford University Press, 1995.](https://www.informatics.jax.org/silver/images/figure2-3.gif){alt="A world map showing the origins and ranges of five Mus musculus subspecies: domesticus, musculus, castaneus, bactrianus and molossinus"}
+![Geographical ranges of subspecies in the Mus musculus group. From [*Mouse Genetics: Concepts and Applications*](https://www.informatics.jax.org/silverbook/) by Lee M. Silver, Oxford University Press, 1995.](fig/figure2-3.gif){alt="A world map showing the origins and ranges of five Mus musculus subspecies: domesticus, musculus, castaneus, bactrianus and molossinus"}
 
 Laboratory mouse strains are descended from a small number of founders 
 (fancy mice) and went through several population bottlenecks. 
 
-![The genealogy of inbred mice. From [*Origins of Inbred Mice*](https://www.informatics.jax.org/morsebook/) edited by Herbert C. Morse III, Academic Press, 1978. Permission from Elsevier. ](https://www.informatics.jax.org/morsebook/images/1-10as.jpg){alt="A genealogy chart showing the origin of commonly used inbred strains as Chinese, Japanese and English mouse fanciers. Abby Lathrop of Granby Mouse Farm supplied fancy mice to researchers including Marsh, C.C. Little, MacDowell, Castle and Strong in the early 1900s. These mice were developed into common inbred strains such as C57BL, 129, DBA and C3H strains."}
+![The genealogy of inbred mice. From [*Origins of Inbred Mice*](https://www.informatics.jax.org/morsebook/) edited by Herbert C. Morse III, Academic Press, 1978. Permission from Elsevier. ](fig/1-10as.jpg){alt="A genealogy chart showing the origin of commonly used inbred strains as Chinese, Japanese and English mouse fanciers. Abby Lathrop of Granby Mouse Farm supplied fancy mice to researchers including Marsh, C.C. Little, MacDowell, Castle and Strong in the early 1900s. These mice were developed into common inbred strains such as C57BL, 129, DBA and C3H strains."}
 
 Wild-derived strains are not descended from fancy mice and don't share the same 
 history as laboratory strains. 
@@ -157,7 +157,7 @@ legend(x = 1000, y = max(lod_add), legend = c('No kinship', 'Overall kinship'),
        col = c('black', 'blue'), lwd = 2)
 ```
 
-<img src="fig/perform-genome-scan-lmm-rendered-plot_lod_all-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-lmm-rendered-plot_lod_all-1.png" alt="" style="display: block; margin: auto;" />
 
 How did the LOD scores change? Did they increase or decrease? In general, the
 LOD scores decreased. In some cases, the LOD score decreased drastically. Why
@@ -233,7 +233,7 @@ legend(x = 1500, y = 7.5, legend = c("No kinship", "All kinship", "LOCO kinship"
        lwd = 2, col = c('black', 'blue', 'darkgreen'))
 ```
 
-<img src="fig/perform-genome-scan-lmm-rendered-plot_lod_add_loco_all-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-lmm-rendered-plot_lod_add_loco_all-1.png" alt="" style="display: block; margin: auto;" />
 
 For circulating insulin, the three methods give quite different results. The 
 linear mixed model with an overall kinship matrix (blue) produces much lower LOD 
@@ -252,7 +252,7 @@ plot(x    = lod_add_loco - lod_add,
      main = "LOCO - no kinship Genome Scan")
 ```
 
-<img src="fig/perform-genome-scan-lmm-rendered-plot_loco_none-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-lmm-rendered-plot_loco_none-1.png" alt="" style="display: block; margin: auto;" />
 
 As you can see from the plot above, the LOCO-kinship scan generally produces
 higher LOD scores. While higher LOD scores don't always mean that the model is

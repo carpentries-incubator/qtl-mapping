@@ -105,7 +105,7 @@ plot_scan1(x    = lod_agouti,
            main = 'Agouti')
 ```
 
-<img src="fig/perform-genome-scan-bin-rendered-plot_bin_scan-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-bin-rendered-plot_bin_scan-1.png" alt="" style="display: block; margin: auto;" />
 
 Yes! There is a big peak on chromosome 2. Let's zoom in on chromosome 2.
 
@@ -117,7 +117,7 @@ plot_scan1(x    = lod_agouti,
            main = "Agouti")
 ```
 
-<img src="fig/perform-genome-scan-bin-rendered-plot_bin_scan_chr2-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-bin-rendered-plot_bin_scan_chr2-1.png" alt="" style="display: block; margin: auto;" />
 
 We can use `find_peaks` to find the position of the highest LOD score.
 
@@ -223,7 +223,7 @@ plot_scan1(x    = lod_tufted,
            main = "Tufted")
 ```
 
-<img src="fig/perform-genome-scan-bin-rendered-challenge2b-1.png" style="display: block; margin: auto;" />
+<img src="fig/perform-genome-scan-bin-rendered-challenge2b-1.png" alt="" style="display: block; margin: auto;" />
 
 Finally, use `find_peaks` to get the peak LOD location.
 
