@@ -19,7 +19,7 @@ phenotype.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-```{r github_load_data,echo=FALSE,warning=FALSE,message=FALSE}
+```{r github_load_data, echo=FALSE, warning=FALSE, message=FALSE}
 options(scipen = 1, digits = 3)
 suppressPackageStartupMessages(library(VariantAnnotation))
 suppressPackageStartupMessages(library(tidyverse))
@@ -193,7 +193,7 @@ region.
 chr         <- '19'
 peaks_chr19 <- filter(peaks, chr == '19')
 annot_chr19 <- filter(annot, chr == '19' & start > peaks_chr19$ci_lo & end < peaks_chr19$ci_hi)
-expr_chr19  <- expr[,annot_chr19$a_gene_id]
+expr_chr19  <- expr[ , annot_chr19$a_gene_id]
 ```
 
 There are `r nrow(annot_chr19)` genes! How can we start to narrow down which 
@@ -234,13 +234,13 @@ differ from C57BL/6J and BTBR. Let's read in this file now using the
 function [readVcf](https://rdrr.io/bioc/VariantAnnotation/man/readVcf-methods.html).
 
 
-```{r readvcf_github,include=FALSE}
+```{r readvcf_github, eval=FALSE}
 vcf <- readVcf(VcfFile(file  = "https://thejacksonlaboratory.box.com/shared/static/dp0srdjojpqoml91fftpbasiwcq22vqi.gz",
                        index = "https://thejacksonlaboratory.box.com/shared/static/gwt3o0gh6pgaeyxuuym58zpur0ktvkz5.tbi"))
 ```
 
 
-```{r readvcf,eval=FALSE}
+```{r readvcf}
 vcf <- readVcf(file.path("data", "btbr_snps_grcm39.vcf.gz"))
 ```
 
