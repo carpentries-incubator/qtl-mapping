@@ -324,7 +324,7 @@ Let's see how many SNPs had missense or stop codon consequences.
 length(csq)
 ```
 
-There were only `r length(csq)` SNPs out of 19,000 SNPs with missense or stop 
+There were only `# r length(csq)` SNPs out of 19,000 SNPs with missense or stop 
 codon consequences. Next, let's do the data wrangling to reformat the
 consequences of these SNPs.
 
