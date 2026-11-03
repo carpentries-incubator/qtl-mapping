@@ -1,0 +1,27 @@
+{
+  "description": "Attie B6/BTBR data, lifted over to GRCm39, Ensembl 110. Cleaned genotypes.",
+  "crosstype": "f2",
+  "sep": ",",
+  "na.strings": "-",
+  "comment.char": "#",
+  "geno": "attie_genotypes.csv",
+  "gmap": "attie_gmap.csv",
+  "pmap": "attie_pmap.csv",
+  "pheno": "attie_pheno.csv",
+  "covar": "attie_covar.csv",
+  "alleles": ["B", "R"],
+  "x_chr": "X",
+  "genotypes": {
+    "BB": 1,
+    "BR": 2,
+    "RR": 3
+  },
+  "sex": {
+    "covar": "Sex",
+    "Female": "female",
+    "Male": "male"
+  },
+  "cross_info": {
+    "covar": "pgm"
+  }
+}
