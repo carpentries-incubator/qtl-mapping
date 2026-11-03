@@ -20,6 +20,10 @@ phenotype.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+``` error
+Error in `library()`:
+! there is no package called 'VariantAnnotation'
+```
 
 ## Introduction
 
@@ -231,7 +235,7 @@ region.
 chr         <- '19'
 peaks_chr19 <- filter(peaks, chr == '19')
 annot_chr19 <- filter(annot, chr == '19' & start > peaks_chr19$ci_lo & end < peaks_chr19$ci_hi)
-expr_chr19  <- expr[,annot_chr19$a_gene_id]
+expr_chr19  <- expr[ , annot_chr19$a_gene_id]
 ```
 
 There are 22 genes! How can we start to narrow down which 
@@ -273,11 +277,20 @@ function [readVcf](https://rdrr.io/bioc/VariantAnnotation/man/readVcf-methods.ht
 
 
 
+``` r
+vcf <- readVcf(VcfFile(file  = "https://thejacksonlaboratory.box.com/shared/static/dp0srdjojpqoml91fftpbasiwcq22vqi.gz",
+                       index = "https://thejacksonlaboratory.box.com/shared/static/gwt3o0gh6pgaeyxuuym58zpur0ktvkz5.tbi"))
+```
 
 
 
 ``` r
 vcf <- readVcf(file.path("data", "btbr_snps_grcm39.vcf.gz"))
+```
+
+``` error
+Error in `readVcf()`:
+! could not find function "readVcf"
 ```
 
 The `vcf` object contains both the SNP allele calls and information about the
@@ -288,8 +301,9 @@ sequencing depth and SNP consequences. Let's see how many SNPs are in the VCF.
 dim(vcf)
 ```
 
-``` output
-[1] 4791000       1
+``` error
+Error:
+! object 'vcf' not found
 ```
 
 There are about 4.8 million SNPs in `vcf`. There are many fields in the VCF
@@ -308,16 +322,20 @@ object must be given bp positions, so we need to multiply these by 1e6.
 ``` r
 chr19_gr <- GRanges(seqnames = peaks_chr19$chr, 
                     ranges   = IRanges(peaks_chr19$ci_lo * 1e6, peaks_chr19$ci_hi * 1e6))
+```
+
+``` error
+Error in `GRanges()`:
+! could not find function "GRanges"
+```
+
+``` r
 chr19_gr
 ```
 
-``` output
-GRanges object with 1 range and 0 metadata columns:
-      seqnames            ranges strand
-         <Rle>         <IRanges>  <Rle>
-  [1]       19 48370979-55150074      *
-  -------
-  seqinfo: 20 sequences from an unspecified genome; no seqlengths
+``` error
+Error:
+! object 'chr19_gr' not found
 ```
 
 Next, we will filter the `vcf` object to retain SNPs within the support interval.
@@ -327,6 +345,11 @@ Next, we will filter the `vcf` object to retain SNPs within the support interval
 vcf_chr19 <- subsetByOverlaps(vcf, ranges = chr19_gr)
 ```
 
+``` error
+Error in `subsetByOverlaps()`:
+! could not find function "subsetByOverlaps"
+```
+
 Let's see how many SNPs there are.
 
 
@@ -334,8 +357,9 @@ Let's see how many SNPs there are.
 dim(vcf_chr19)
 ```
 
-``` output
-[1] 19065     1
+``` error
+Error:
+! object 'vcf_chr19' not found
 ```
 
 There are still 19,000 SNPs! But many of them may not be in coding regions or
@@ -353,12 +377,30 @@ in regulating insulin levels.
 ``` r
 # Get the SNP positions.
 pos = start(rowRanges(vcf_chr19)) / 1e6
+```
 
+``` error
+Error in `rowRanges()`:
+! could not find function "rowRanges"
+```
+
+``` r
 plot(density(pos), las = 1, lwd = 2, main = "Density of SNPs")
+```
+
+``` error
+Error:
+! object 'pos' not found
+```
+
+``` r
 rug(pos)
 ```
 
-<img src="fig/integrating-gene-expression-rendered-snp_density-1.png" alt="" style="display: block; margin: auto;" />
+``` error
+Error:
+! object 'pos' not found
+```
 
 From the plot above, we can see that the density of SNPS between B6 and BTBR is
 not uniform. Most of the SNPs lie between 50 and 52 Mb, with less dense 
@@ -372,11 +414,47 @@ readable.
 
 ``` r
 csq <- info(vcf_chr19)$CSQ
-csq <- as.list(csq)
+```
 
+``` error
+Error in `info()`:
+! could not find function "info"
+```
+
+``` r
+csq <- as.list(csq)
+```
+
+``` error
+Error:
+! object 'csq' not found
+```
+
+``` r
 wh  <- grep('missense|stop', csq)
+```
+
+``` error
+Error:
+! object 'csq' not found
+```
+
+``` r
 csq <- csq[wh]
+```
+
+``` error
+Error:
+! object 'csq' not found
+```
+
+``` r
 rr  <- rowRanges(vcf_chr19)[wh]
+```
+
+``` error
+Error in `rowRanges()`:
+! could not find function "rowRanges"
 ```
 
 Let's see how many SNPs had missense or stop codon consequences.
@@ -386,11 +464,12 @@ Let's see how many SNPs had missense or stop codon consequences.
 length(csq)
 ```
 
-``` output
-[1] 8
+``` error
+Error:
+! object 'csq' not found
 ```
 
-There were only 8 SNPs out of 19,000 SNPs with missense or stop 
+There were only `# r length(csq)` SNPs out of 19,000 SNPs with missense or stop 
 codon consequences. Next, let's do the data wrangling to reformat the
 consequences of these SNPs.
 
@@ -403,18 +482,45 @@ This may be a good code chunk to have the students copy and paste.
 
 ``` r
 csq <- lapply(csq, strsplit, split = "\\|")
+```
+
+``` error
+Error:
+! object 'csq' not found
+```
+
+``` r
 csq <- lapply(csq, function(z) {
                      matrix(unlist(z), ncol = length(z[[1]]), byrow = TRUE)
                    })
+```
 
+``` error
+Error:
+! object 'csq' not found
+```
+
+``` r
 for(i in seq_along(csq)) {
   
   csq[[i]] <- data.frame(snp_id = names(rr)[i],
                          csq[[i]])
   
 } # for(i)
+```
 
+``` error
+Error:
+! object 'csq' not found
+```
+
+``` r
 csq = do.call(rbind, csq)
+```
+
+``` error
+Error:
+! object 'csq' not found
 ```
 
 Let's look at the top of `csq`.
@@ -424,35 +530,9 @@ Let's look at the top of `csq`.
 head(csq)
 ```
 
-``` output
-           snp_id X1               X2       X3     X4                 X5
-1 19:50141282_A/G  G   intron_variant MODIFIER Sorcs1 ENSMUSG00000043531
-2 19:50141282_A/G  T   intron_variant MODIFIER Sorcs1 ENSMUSG00000043531
-3 19:50141282_A/G  C   intron_variant MODIFIER Sorcs1 ENSMUSG00000043531
-4 19:50141282_A/G  G missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-5 19:50141282_A/G  T missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-6 19:50141282_A/G  C missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-          X6                 X7             X8    X9   X10 X11 X12  X13  X14
-1 Transcript ENSMUST00000072685 protein_coding       26/26                  
-2 Transcript ENSMUST00000072685 protein_coding       26/26                  
-3 Transcript ENSMUST00000072685 protein_coding       26/26                  
-4 Transcript ENSMUST00000111756 protein_coding 27/27               3465 3448
-5 Transcript ENSMUST00000111756 protein_coding 27/27               3465 3448
-6 Transcript ENSMUST00000111756 protein_coding 27/27               3465 3448
-   X15 X16     X17 X18 X19 X20 X21 X22 X23 X24               X25 X26 X27 X28
-1                           -1     SNV MGI                                  
-2                           -1     SNV MGI                                  
-3                           -1     SNV MGI                                  
-4 1150 S/P Tct/Cct          -1     SNV MGI       tolerated(0.09)            
-5 1150 S/T Tct/Act          -1     SNV MGI       tolerated(0.26)            
-6 1150 S/A Tct/Gct          -1     SNV MGI     deleterious(0.03)            
-  X29
-1    
-2    
-3    
-4    
-5    
-6    
+``` error
+Error:
+! object 'csq' not found
 ```
 
 There are a lot of columns and we may not need all of them. Next, let's reduce
@@ -461,6 +541,11 @@ the number of columns to keep the ones that we need.
 
 ``` r
 csq <- csq[,c(1:7,9,17,18,26)]
+```
+
+``` error
+Error:
+! object 'csq' not found
 ```
 
 Next, we will subset the consequences to retain the unique rows and then retain
@@ -472,6 +557,11 @@ csq <- distinct(csq) |>
          filter(str_detect(X2, "missense|stop"))
 ```
 
+``` error
+Error:
+! object 'csq' not found
+```
+
 Let's look at the top of `csq` now.
 
 
@@ -479,21 +569,9 @@ Let's look at the top of `csq` now.
 head(csq)
 ```
 
-``` output
-           snp_id X1               X2       X3     X4                 X5
-1 19:50141282_A/G  G missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-2 19:50141282_A/G  T missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-3 19:50141282_A/G  C missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-4 19:50141444_G/A  A missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-5 19:50141444_G/A  T missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-6 19:50141444_G/A  C missense_variant MODERATE Sorcs1 ENSMUSG00000043531
-          X6             X8 X16     X17                              X25
-1 Transcript protein_coding S/P Tct/Cct                  tolerated(0.09)
-2 Transcript protein_coding S/T Tct/Act                  tolerated(0.26)
-3 Transcript protein_coding S/A Tct/Gct                deleterious(0.03)
-4 Transcript protein_coding S/F tCc/tTc deleterious_low_confidence(0.01)
-5 Transcript protein_coding S/Y tCc/tAc deleterious_low_confidence(0.01)
-6 Transcript protein_coding S/C tCc/tGc deleterious_low_confidence(0.01)
+``` error
+Error:
+! object 'csq' not found
 ```
 
 Column `X4` contains gene names. Let's get the unique gene names.
@@ -504,10 +582,9 @@ csq |>
   distinct(X4)
 ```
 
-``` output
-      X4
-1 Sorcs1
-2  Rbm20
+``` error
+Error:
+! object 'csq' not found
 ```
 
 There are only two genes in the QTL support interval which contain missense
