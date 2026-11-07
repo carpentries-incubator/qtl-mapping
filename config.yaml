@@ -28,7 +28,7 @@ keywords: 'software, data, lesson, The Carpentries, genetics, statistics, genome
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha' # FIXME
+life_cycle: 'beta' # FIXME
 
 # License of the lesson
 license: 'CC-BY 4.0'
@@ -69,7 +69,6 @@ episodes:
 - intro_data_set.Rmd
 - input-file-format.Rmd
 - calc-genoprob.Rmd
-#- special-x-covar.Rmd
 - perform-genome-scan.Rmd
 - calc-kinship.Rmd
 - perform-genome-scan-lmm.Rmd
@@ -82,6 +81,8 @@ episodes:
 
 # Information for Learners
 learners:
+- setup.md
+- reference.md
 
 # Information for Instructors
 instructors:
