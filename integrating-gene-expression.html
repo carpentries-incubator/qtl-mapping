@@ -402,7 +402,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Integrating Gene Expression Data</h1>
-        <p>Last updated on 2026-11-03 |
+        <p>Last updated on 2026-11-08 |
 
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/integrating-gene-expression.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -734,13 +734,6 @@ function <a href="https://rdrr.io/bioc/VariantAnnotation/man/readVcf-methods.htm
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">vcf</span> <span class="op">&lt;-</span> <span class="fu">readVcf</span><span class="op">(</span><span class="fu">VcfFile</span><span class="op">(</span>file  <span class="op">=</span> <span class="st">"https://thejacksonlaboratory.box.com/shared/static/dp0srdjojpqoml91fftpbasiwcq22vqi.gz"</span>,</span>
-<span>                       index <span class="op">=</span> <span class="st">"https://thejacksonlaboratory.box.com/shared/static/gwt3o0gh6pgaeyxuuym58zpur0ktvkz5.tbi"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vcf</span> <span class="op">&lt;-</span> <span class="fu">readVcf</span><span class="op">(</span><span class="fu">file.path</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"btbr_snps_grcm39.vcf.gz"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
@@ -752,7 +745,7 @@ function <a href="https://rdrr.io/bioc/VariantAnnotation/man/readVcf-methods.htm
 <p>The <code>vcf</code> object contains both the SNP allele calls and
 information about the sequencing depth and SNP consequences. Let’s see
 how many SNPs are in the VCF.</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -774,7 +767,7 @@ object which contains the coordinates of the QTL support interval on
 chromosome 19. Note that the support interval is reported by
 <code>qtl2</code> in Mb and the GRanges object must be given bp
 positions, so we need to multiply these by 1e6.</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -787,7 +780,7 @@ positions, so we need to multiply these by 1e6.</p>
 <pre class="error" tabindex="0"><code>Error in `GRanges()`:
 ! could not find function "GRanges"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -801,7 +794,7 @@ positions, so we need to multiply these by 1e6.</p>
 </div>
 <p>Next, we will filter the <code>vcf</code> object to retain SNPs
 within the support interval.</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -814,7 +807,7 @@ within the support interval.</p>
 ! could not find function "subsetByOverlaps"</code></pre>
 </div>
 <p>Let’s see how many SNPs there are.</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -835,7 +828,7 @@ But it is more difficult to predict those effects.</p>
 <p>Let’s plot the density of the SNPs to see where they fall. We would
 not expect genes which lie in regions without variation between B6 and
 BTBR to be involved in regulating insulin levels.</p>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -848,7 +841,7 @@ BTBR to be involved in regulating insulin levels.</p>
 <pre class="error" tabindex="0"><code>Error in `rowRanges()`:
 ! could not find function "rowRanges"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb36">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -860,7 +853,7 @@ BTBR to be involved in regulating insulin levels.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'pos' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -879,7 +872,7 @@ less dense regions extending past 54 Mb.</p>
 field called <code>CSQ</code>. The format of this field is challenging
 to parse, so we will get it, search for missense and stop SNPs, and then
 do some data-wrangling to may the output readable.</p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -891,7 +884,7 @@ do some data-wrangling to may the output readable.</p>
 <pre class="error" tabindex="0"><code>Error in `info()`:
 ! could not find function "info"</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -903,7 +896,7 @@ do some data-wrangling to may the output readable.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'csq' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -915,7 +908,7 @@ do some data-wrangling to may the output readable.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'csq' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -927,7 +920,7 @@ do some data-wrangling to may the output readable.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'csq' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb48">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -940,7 +933,7 @@ do some data-wrangling to may the output readable.</p>
 ! could not find function "rowRanges"</code></pre>
 </div>
 <p>Let’s see how many SNPs had missense or stop codon consequences.</p>
-<div class="codewrapper sourceCode" id="cb50">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -956,7 +949,7 @@ do some data-wrangling to may the output readable.</p>
 with missense or stop codon consequences. Next, let’s do the data
 wrangling to reformat the consequences of these SNPs.</p>
 
-<div class="codewrapper sourceCode" id="cb52">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -968,7 +961,7 @@ wrangling to reformat the consequences of these SNPs.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'csq' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb54">
+<div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -982,7 +975,7 @@ wrangling to reformat the consequences of these SNPs.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'csq' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb56">
+<div class="codewrapper sourceCode" id="cb55">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -999,7 +992,7 @@ wrangling to reformat the consequences of these SNPs.</p>
 <pre class="error" tabindex="0"><code>Error:
 ! object 'csq' not found</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb57">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1012,7 +1005,7 @@ wrangling to reformat the consequences of these SNPs.</p>
 ! object 'csq' not found</code></pre>
 </div>
 <p>Let’s look at the top of <code>csq</code>.</p>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1026,7 +1019,7 @@ wrangling to reformat the consequences of these SNPs.</p>
 </div>
 <p>There are a lot of columns and we may not need all of them. Next,
 let’s reduce the number of columns to keep the ones that we need.</p>
-<div class="codewrapper sourceCode" id="cb62">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1040,7 +1033,7 @@ let’s reduce the number of columns to keep the ones that we need.</p>
 </div>
 <p>Next, we will subset the consequences to retain the unique rows and
 then retain rows which contain “missense” and “stop”.</p>
-<div class="codewrapper sourceCode" id="cb64">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1054,7 +1047,7 @@ then retain rows which contain “missense” and “stop”.</p>
 ! object 'csq' not found</code></pre>
 </div>
 <p>Let’s look at the top of <code>csq</code> now.</p>
-<div class="codewrapper sourceCode" id="cb66">
+<div class="codewrapper sourceCode" id="cb65">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1068,7 +1061,7 @@ then retain rows which contain “missense” and “stop”.</p>
 </div>
 <p>Column <code>X4</code> contains gene names. Let’s get the unique gene
 names.</p>
-<div class="codewrapper sourceCode" id="cb68">
+<div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1130,7 +1123,7 @@ since we expect the genotype to influence expression levels.</p>
 <p>Let’s perform QTL mapping on the genes within the chromosome 19
 insulin QTL support interval. We can do this by passing in the
 expression values as phenotypes into <code>scan1</code>.</p>
-<div class="codewrapper sourceCode" id="cb70">
+<div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1140,7 +1133,7 @@ expression values as phenotypes into <code>scan1</code>.</p>
 <span>                    addcovar  <span class="op">=</span> <span class="va">addcovar</span><span class="op">)</span></span></code></pre>
 </div>
 <p>Let’s look at the top of the results.</p>
-<div class="codewrapper sourceCode" id="cb71">
+<div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1160,7 +1153,7 @@ rs13483555   2.08   1.62  0.862  0.255  0.867 0.1289</code></pre>
 <p>The eQTL results have one row for each marker and one column for each
 gene. Each column represents the LOD plot for one gene. Let’s plot the
 genome scan for one gene.</p>
-<div class="codewrapper sourceCode" id="cb73">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1178,7 +1171,7 @@ candidate gene.</p>
 <p>We can harvest the significant QTL peaks on chromosome 19 using
 <code>find_peaks</code>. We will use the default threshold of LOD =
 3.</p>
-<div class="codewrapper sourceCode" id="cb74">
+<div class="codewrapper sourceCode" id="cb73">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1200,7 +1193,7 @@ candidate gene.</p>
 <p>We can see that there are 6 significant QTL on chromosome 19. All of
 these genes are within the support interval of the insulin QTL.</p>
 <p>Let’s filter the eQTL genes and add in gene annotation for them.</p>
-<div class="codewrapper sourceCode" id="cb76">
+<div class="codewrapper sourceCode" id="cb75">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1240,7 +1233,7 @@ these genes are within the support interval of the insulin QTL.</p>
 <p>Let’s plot the insulin QTL again to remind ourselves what the peak on
 chromosome 19 look like. We will also plot the genome scan for one of
 the genes on chromosome 19.</p>
-<div class="codewrapper sourceCode" id="cb78">
+<div class="codewrapper sourceCode" id="cb77">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1270,7 +1263,7 @@ then changes the phenotype, “mediation”.</p>
 <hr class="half-width"><p>If a gene is correlated with insulin levels and if it has an eQTL in
 the same location as insulin, then we could add it into the insulin QTL
 model and see if it reduces the LOD on chromosome 19.</p>
-<div class="codewrapper sourceCode" id="cb79">
+<div class="codewrapper sourceCode" id="cb78">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1284,7 +1277,7 @@ model and see if it reduces the LOD on chromosome 19.</p>
 </div>
 <p>Next, we will plot the original insulin genome scan and overlay the
 genome scan with gene <code>10002936879</code> in the model.</p>
-<div class="codewrapper sourceCode" id="cb80">
+<div class="codewrapper sourceCode" id="cb79">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1311,7 +1304,7 @@ the entire chromosome. We only need the LOD drop at the location of the
 peak LOD. To do this, we can use the <code>fit1</code> function to get
 the LOD at the marker with the highest LOD in the insulin genome
 scan.</p>
-<div class="codewrapper sourceCode" id="cb81">
+<div class="codewrapper sourceCode" id="cb80">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1344,7 +1337,7 @@ scan.</p>
 <span><span class="co"># Subtract the insulin LOD from the mediation LODs.</span></span>
 <span><span class="va">lod_drop</span><span class="op">$</span><span class="va">lod_drop</span> <span class="op">=</span> <span class="va">lod_drop</span><span class="op">$</span><span class="va">lod</span> <span class="op">-</span> <span class="va">peaks_chr19</span><span class="op">$</span><span class="va">lod</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb82">
+<div class="codewrapper sourceCode" id="cb81">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1361,7 +1354,7 @@ decrease in the LOD score (i.e. LOD drop). Genes with the lowest LOD
 drop are the best candidate genes based on mediation analysis.</p>
 <p>Let’s look at the annotation for the genes with LOD drop less than
 -2.</p>
-<div class="codewrapper sourceCode" id="cb83">
+<div class="codewrapper sourceCode" id="cb82">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1473,8 +1466,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-rmd/integrating-gene-expression.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/integrating-gene-expression.html",
   "dateCreated": "2024-09-06",
-  "dateModified": "2026-11-03",
-  "datePublished": "2026-11-07"
+  "dateModified": "2026-11-08",
+  "datePublished": "2026-11-08"
 }
 
   </script><script>
