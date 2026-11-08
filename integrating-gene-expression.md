@@ -276,14 +276,6 @@ differ from C57BL/6J and BTBR. Let's read in this file now using the
 function [readVcf](https://rdrr.io/bioc/VariantAnnotation/man/readVcf-methods.html).
 
 
-
-``` r
-vcf <- readVcf(VcfFile(file  = "https://thejacksonlaboratory.box.com/shared/static/dp0srdjojpqoml91fftpbasiwcq22vqi.gz",
-                       index = "https://thejacksonlaboratory.box.com/shared/static/gwt3o0gh6pgaeyxuuym58zpur0ktvkz5.tbi"))
-```
-
-
-
 ``` r
 vcf <- readVcf(file.path("data", "btbr_snps_grcm39.vcf.gz"))
 ```
