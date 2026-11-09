@@ -119,8 +119,7 @@ new script.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
 The code below is needed to load in the data objects to build the lesson on
-Github. The `*.Rdata` file is over 200 Mb and Github has a file size limit of
-100 Mb. The students should **NOT** run the next block.
+Github. The students should **NOT** run the next block.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -899,7 +898,7 @@ summary(perms)
 ``` output
 LOD thresholds (100 permutations)
      log_mnret
-0.05      7.64
+0.05      7.41
 ```
 
 Note that this summary function returns the 95th percentile value of the LOD
@@ -1424,8 +1423,8 @@ find_peaks(lod_pre, map, threshold = 8, prob = 0.95)
 
 ``` output
   lodindex          lodcolumn chr       pos       lod     ci_lo     ci_hi
-1        1 log_pre_prop_mnret   4 132.77875 13.145968 132.77875 134.27938
-2        1 log_pre_prop_mnret  12  75.45433  8.404212  74.14949  77.30552
+1        1 log_pre_prop_mnret   4 132.77875 13.145971 132.77875 134.27938
+2        1 log_pre_prop_mnret  12  75.45433  8.404218  74.14949  77.30552
 ```
 
 4. Calculate and plot BLUPs for the highest peak.
