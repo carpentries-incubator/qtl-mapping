@@ -118,8 +118,7 @@ new script.
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
 The code below is needed to load in the data objects to build the lesson on
-Github. The `*.Rdata` file is over 200 Mb and Github has a file size limit of
-100 Mb. The students should **NOT** run the next block.
+Github. The students should **NOT** run the next block.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
