@@ -70,6 +70,7 @@ episodes:
 - input-file-format.Rmd
 - calc-genoprob.Rmd
 - perform-genome-scan.Rmd
+- special-x-covar.Rmd
 - calc-kinship.Rmd
 - perform-genome-scan-lmm.Rmd
 - perform-genome-scan-bin.Rmd

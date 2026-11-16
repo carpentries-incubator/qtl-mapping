@@ -39,6 +39,15 @@ trait mapping with R/qtl2 is shown here.
 
 ![Workflow for QTL mapping](./fig/mapping-workflow.png)
 
+This lesson begins with [an F2 intercross](https://carpentries-incubator.github.io/qtl-mapping/intro_data_set.html) 
+and ends with an example that uses 
+[the Diversity Outbred](https://carpentries-incubator.github.io/qtl-mapping/do_qtl_mapping.html).
+We choose to start with the simpler case of an F2 intercross (3 possible genotypes) before
+advancing to the more complex Diversity Outbred (36 possible genotypes). When you are 
+ready to move on to more advanced topics using the Diversity Outbred, see the
+[Expression Quantitative Trait Locus (eQTL) Mapping](https://carpentries-incubator.github.io/eqtl-mapping/)
+lesson or the [QTLretrievR](https://deweyhannah.github.io/QTLretrievR/) package.
+
 To cite R/qtl in publications:
 Broman KW, Wu H, Sen S, Churchill GA (2003) R/qtl: QTL mapping
 in experimental crosses. Bioinformatics 19:889-89

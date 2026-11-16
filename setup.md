@@ -19,13 +19,20 @@ Choose the free RStudio Desktop version for Windows, Mac, or Linux.
     haplotype reconstruction, QTL mapping and plotting. 
     b. The [qtl2convert](https://github.com/rqtl/qtl2convert) package contains
     code for converting data objects from one format to another.
-    c. Install qtl2 by copying and pasting the following code in the R console.
+    c. Install all R packages by copying and pasting the following code in the R 
+    console.
 
 ```r
 install.packages(c("tidyverse", "ggbeeswarm", "qtl2", "qtl2convert"))
 ```
+    d. Install Bioconductor packages separately with the following code.
+```r
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("VariantAnnotation")
+```
 
-Once the installation is complete, load the libraries to make sure that they 
+Once the installations are complete, load the libraries to make sure that they 
 installed correctly. 
 
 ```r
@@ -33,6 +40,7 @@ library(tidyverse)
 library(ggbeeswarm)
 library(qtl2)
 library(qtl2convert)
+library(VariantAnnotation)
 ```
 
 If the libraries don't load and you received errors during the installation,

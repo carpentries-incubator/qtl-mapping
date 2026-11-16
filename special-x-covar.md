@@ -1,0 +1,97 @@
+---
+title: "Special covariates for the X chromosome"
+teaching: 15
+exercises: 15
+---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- "How do I find the chromosome X covariates for a cross?"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Get the X covariates for a cross.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+The X chromosome must be treated differently from the autosomes in the mapping 
+of quantitative trait loci (QTL). If the X chromosome is treated like an 
+autosome, a sex difference in a phenotype, such as weight or height, can lead to 
+spurious linkage on the X chromosome. The X chromosome varies depending on the 
+sex of the animal and the direction of the cross, so accounting for these 
+covariates is important under the null hypothesis of no QTL, to avoid spurious 
+evidence of linkage. (See 
+[Broman et al. (2006) Genetics 174:2151-2158](http://www.genetics.org/content/174/4/2151.long).) 
+Specifically, 
+[see the figures](https://www.genetics.org/content/174/4/2151.figures-only) 
+for the behavior of the X chromosome in a backcross and in an intercross.
+
+Load the `iron` data included with the qtl2 package. These data are from a F2
+intercross described in 
+[Grant et al. (2006) Hepatology Jul;44(1):174-85](https://journals.lww.com/hep/abstract/10.1002/hep.21233~multiple-polymorphic-loci-determine-basal-hepatic-and?redirectionsource=fulltextview).
+
+
+``` r
+library(qtl2)
+iron <- read_cross2(file = system.file("extdata", "iron.zip", package="qtl2") )
+```
+
+The particular X chromosome covariates depends on the cross, and can be obtained 
+with the function `get_x_covar()`. In the iron data, sex is indicated as 0 for 
+females and 1 for males. For cross direction, see Figure 2 of 
+[Broman et al. (2006) Genetics 174:2151-2158](http://www.genetics.org/content/174/4/2151.long).  
+For cross direction, all samples are filled in with 0 except for females from 
+the *reverse* direction, which are indicated with 1.
+
+
+``` r
+Xcovar <- get_x_covar(iron)
+head(Xcovar)
+```
+
+``` output
+  sex direction
+1   1         0
+2   1         0
+3   1         0
+4   1         0
+5   1         0
+6   1         0
+```
+
+Insert pseudomarkers and calculate genotype probabilities on the `iron` cross.
+
+
+``` r
+ironmap <- insert_pseudomarkers(iron$gmap, step=1)
+ironprobs <- calc_genoprob(iron, ironmap, error_prob=0.002)
+```
+
+Now you can run a scan using X chromosome covariates on the `iron` data.
+
+
+``` r
+lod_X <- scan1(genoprobs = ironprobs, 
+                 pheno   = iron$pheno, 
+                 Xcovar  = Xcovar)
+```
+
+Now plot the genome scan for liver and spleen.
+
+
+``` r
+plot(lod_X, ironmap, lodcolumn=1, col="blue")
+plot(lod_X, ironmap, lodcolumn=2, col="red", add=TRUE)
+```
+
+<img src="fig/special-x-covar-rendered-plot_scan-1.png" alt="" style="display: block; margin: auto;" />
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- The X chromosome requires special treatment in QTL mapping.
+- Special covariates such as sex should be included to avoid spurious evidence 
+of linkage.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
