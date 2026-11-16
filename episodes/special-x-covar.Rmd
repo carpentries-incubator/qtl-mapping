@@ -16,7 +16,7 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-```{r load_data, echo=FALSE}
+```{r load_iron_data, warning=FALSE}
 library(qtl2)
 iron <- read_cross2(file = system.file("extdata", "iron.zip", package="qtl2") )
 ```
@@ -33,23 +33,53 @@ Specifically,
 [see the figures](https://www.genetics.org/content/174/4/2151.figures-only) 
 for the behavior of the X chromosome in a backcross and in an intercross.
 
+Load the `iron` data included with the qtl2 package. These data are from a F2
+intercross described in 
+[Grant et al. (2006) Hepatology Jul;44(1):174-85](https://journals.lww.com/hep/abstract/10.1002/hep.21233~multiple-polymorphic-loci-determine-basal-hepatic-and?redirectionsource=fulltextview).
+
+```{r load_iron_data, warning=FALSE}
+library(qtl2)
+iron <- read_cross2(file = system.file("extdata", "iron.zip", package="qtl2") )
+```
+
 The particular X chromosome covariates depends on the cross, and can be obtained 
 with the function `get_x_covar()`. In the iron data, sex is indicated as 0 for 
 females and 1 for males. For cross direction, see Figure 2 of 
 [Broman et al. (2006) Genetics 174:2151-2158](http://www.genetics.org/content/174/4/2151.long).  
 For cross direction, all samples are filled in with 0 except for females from 
-the *reverse* direction, who are indicated with 1.
-
+the *reverse* direction, which are indicated with 1.
 
 ```{r x_covar}
 Xcovar <- get_x_covar(iron)
 head(Xcovar)
 ```
 
+Insert pseudomarkers and calculate genotype probabilities on the `iron` cross.
+
+```{r map_genoprobs}
+ironmap <- insert_pseudomarkers(iron$gmap, step=1)
+ironprobs <- calc_genoprob(iron, ironmap, error_prob=0.002)
+```
+
+Now you can run a scan using X chromosome covariates on the `iron` data.
+
+```{r iron_scan}
+lod_X <- scan1(genoprobs = ironprobs, 
+                 pheno   = iron$pheno, 
+                 Xcovar  = Xcovar)
+```
+
+Now plot the genome scan for liver and spleen.
+
+```{r plot_scan}
+plot(lod_X, ironmap, lodcolumn=1, col="blue")
+plot(lod_X, ironmap, lodcolumn=2, col="red", add=TRUE)
+```
+
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- "The X chromosome requires special treatment in QTL mapping."
-- "Special covariates such as sex should be included to avoid spurious evidence 
-of linkage."
+- The X chromosome requires special treatment in QTL mapping.
+- Special covariates such as sex should be included to avoid spurious evidence 
+of linkage.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
