@@ -20,10 +20,6 @@ phenotype.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-``` error
-Error in `library()`:
-! there is no package called 'VariantAnnotation'
-```
 
 ## Introduction
 
@@ -281,8 +277,8 @@ vcf <- readVcf(file.path("data", "btbr_snps_grcm39.vcf.gz"))
 ```
 
 ``` error
-Error in `readVcf()`:
-! could not find function "readVcf"
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'seqinfo': no 'header' line "#CHROM POS ID..."?
 ```
 
 The `vcf` object contains both the SNP allele calls and information about the
@@ -314,20 +310,16 @@ object must be given bp positions, so we need to multiply these by 1e6.
 ``` r
 chr19_gr <- GRanges(seqnames = peaks_chr19$chr, 
                     ranges   = IRanges(peaks_chr19$ci_lo * 1e6, peaks_chr19$ci_hi * 1e6))
-```
-
-``` error
-Error in `GRanges()`:
-! could not find function "GRanges"
-```
-
-``` r
 chr19_gr
 ```
 
-``` error
-Error:
-! object 'chr19_gr' not found
+``` output
+GRanges object with 1 range and 0 metadata columns:
+      seqnames            ranges strand
+         <Rle>         <IRanges>  <Rle>
+  [1]       19 48370979-55150074      *
+  -------
+  seqinfo: 20 sequences from an unspecified genome; no seqlengths
 ```
 
 Next, we will filter the `vcf` object to retain SNPs within the support interval.
@@ -338,8 +330,8 @@ vcf_chr19 <- subsetByOverlaps(vcf, ranges = chr19_gr)
 ```
 
 ``` error
-Error in `subsetByOverlaps()`:
-! could not find function "subsetByOverlaps"
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'subsetByOverlaps': object 'vcf' not found
 ```
 
 Let's see how many SNPs there are.
@@ -372,8 +364,8 @@ pos = start(rowRanges(vcf_chr19)) / 1e6
 ```
 
 ``` error
-Error in `rowRanges()`:
-! could not find function "rowRanges"
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'start': error in evaluating the argument 'x' in selecting a method for function 'rowRanges': object 'vcf_chr19' not found
 ```
 
 ``` r
@@ -381,8 +373,8 @@ plot(density(pos), las = 1, lwd = 2, main = "Density of SNPs")
 ```
 
 ``` error
-Error:
-! object 'pos' not found
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'plot': argument 'x' must be numeric
 ```
 
 ``` r
@@ -390,8 +382,8 @@ rug(pos)
 ```
 
 ``` error
-Error:
-! object 'pos' not found
+Error in `as.vector()`:
+! cannot coerce type 'closure' to vector of type 'any'
 ```
 
 From the plot above, we can see that the density of SNPS between B6 and BTBR is
@@ -409,8 +401,8 @@ csq <- info(vcf_chr19)$CSQ
 ```
 
 ``` error
-Error in `info()`:
-! could not find function "info"
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'info': object 'vcf_chr19' not found
 ```
 
 ``` r
@@ -418,8 +410,8 @@ csq <- as.list(csq)
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'as.list': object 'csq' not found
 ```
 
 ``` r
@@ -427,8 +419,8 @@ wh  <- grep('missense|stop', csq)
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'grep': object 'csq' not found
 ```
 
 ``` r
@@ -445,8 +437,8 @@ rr  <- rowRanges(vcf_chr19)[wh]
 ```
 
 ``` error
-Error in `rowRanges()`:
-! could not find function "rowRanges"
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'rowRanges': object 'vcf_chr19' not found
 ```
 
 Let's see how many SNPs had missense or stop codon consequences.
@@ -477,8 +469,8 @@ csq <- lapply(csq, strsplit, split = "\\|")
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'X' in selecting a method for function 'lapply': object 'csq' not found
 ```
 
 ``` r
@@ -488,8 +480,8 @@ csq <- lapply(csq, function(z) {
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'X' in selecting a method for function 'lapply': object 'csq' not found
 ```
 
 ``` r
@@ -511,8 +503,8 @@ csq = do.call(rbind, csq)
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'args' in selecting a method for function 'do.call': object 'csq' not found
 ```
 
 Let's look at the top of `csq`.
@@ -523,8 +515,8 @@ head(csq)
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'head': object 'csq' not found
 ```
 
 There are a lot of columns and we may not need all of them. Next, let's reduce
@@ -562,8 +554,8 @@ head(csq)
 ```
 
 ``` error
-Error:
-! object 'csq' not found
+Error in `h()`:
+! error in evaluating the argument 'x' in selecting a method for function 'head': object 'csq' not found
 ```
 
 Column `X4` contains gene names. Let's get the unique gene names.

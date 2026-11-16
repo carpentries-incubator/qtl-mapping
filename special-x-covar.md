@@ -6,7 +6,7 @@ exercises: 15
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- "How do I find the chromosome X covariates for a cross?"
+- How do I find the chromosome X covariates for a cross?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
