@@ -898,7 +898,7 @@ summary(perms)
 ``` output
 LOD thresholds (100 permutations)
      log_mnret
-0.05      6.71
+0.05       7.5
 ```
 
 Note that this summary function returns the 95th percentile value of the LOD
@@ -1423,8 +1423,8 @@ find_peaks(lod_pre, map, threshold = 8, prob = 0.95)
 
 ``` output
   lodindex          lodcolumn chr       pos       lod     ci_lo     ci_hi
-1        1 log_pre_prop_mnret   4 132.77875 13.145972 132.77875 134.27938
-2        1 log_pre_prop_mnret  12  75.45433  8.404239  74.14949  77.30552
+1        1 log_pre_prop_mnret   4 132.77875 13.145968 132.77875 134.27938
+2        1 log_pre_prop_mnret  12  75.45433  8.404212  74.14949  77.30552
 ```
 
 4. Calculate and plot BLUPs for the highest peak.
