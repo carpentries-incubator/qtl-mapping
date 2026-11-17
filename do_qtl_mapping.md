@@ -898,7 +898,7 @@ summary(perms)
 ``` output
 LOD thresholds (100 permutations)
      log_mnret
-0.05       7.5
+0.05      7.37
 ```
 
 Note that this summary function returns the 95th percentile value of the LOD
@@ -1423,8 +1423,8 @@ find_peaks(lod_pre, map, threshold = 8, prob = 0.95)
 
 ``` output
   lodindex          lodcolumn chr       pos       lod     ci_lo     ci_hi
-1        1 log_pre_prop_mnret   4 132.77875 13.145968 132.77875 134.27938
-2        1 log_pre_prop_mnret  12  75.45433  8.404212  74.14949  77.30552
+1        1 log_pre_prop_mnret   4 132.77875 13.145978 132.77875 134.27938
+2        1 log_pre_prop_mnret  12  75.45433  8.404231  74.14949  77.30552
 ```
 
 4. Calculate and plot BLUPs for the highest peak.
@@ -1491,21 +1491,19 @@ sessionInfo()
 ```
 
 ``` output
-R version 4.6.1 (2026-06-24)
+R version 4.6.2 (2026-10-29)
 Platform: x86_64-pc-linux-gnu
-Running under: Ubuntu 24.04.4 LTS
+Running under: Ubuntu 26.04.1 LTS
 
 Matrix products: default
 BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.32.so;  LAPACK version 3.12.0
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
 
 time zone: Etc/UTC
 tzcode source: system (glibc)
@@ -1520,22 +1518,21 @@ other attached packages:
 [13] tidyverse_2.0.0 
 
 loaded via a namespace (and not attached):
- [1] generics_0.1.4      renv_1.3.0          RSQLite_3.53.3     
+ [1] generics_0.1.4      renv_1.3.1          RSQLite_3.53.3     
  [4] stringi_1.8.9       hms_1.1.4           magrittr_2.0.5     
- [7] evaluate_1.0.5      grid_4.6.1          timechange_0.4.0   
+ [7] evaluate_1.0.5      grid_4.6.2          timechange_0.4.0   
 [10] RColorBrewer_1.1-3  fastmap_1.2.0       blob_1.3.0         
 [13] DBI_1.3.0           BiocManager_1.30.27 scales_1.4.0       
 [16] qtl_1.74            cli_3.6.6           rlang_1.3.0        
 [19] bit64_4.8.6         withr_3.0.3         cachem_1.1.0       
-[22] yaml_2.3.12         otel_0.3.0          parallel_4.6.1     
-[25] tools_4.6.1         tzdb_0.5.0          memoise_2.0.1      
-[28] vctrs_0.7.3         R6_2.6.1            lifecycle_1.0.5    
-[31] bit_4.6.0           vipor_0.4.7         pkgconfig_2.0.3    
-[34] beeswarm_0.4.0      pillar_1.11.1       gtable_0.3.6       
-[37] data.table_1.18.6.1 glue_1.8.1          Rcpp_1.1.2         
-[40] xfun_0.62           tidyselect_1.2.1    knitr_1.52         
-[43] farver_2.1.2        labeling_0.4.3      compiler_4.6.1     
-[46] S7_0.2.2           
+[22] otel_0.3.0          parallel_4.6.2      tools_4.6.2        
+[25] tzdb_0.5.0          memoise_2.0.1       vctrs_0.7.3        
+[28] R6_2.6.1            lifecycle_1.0.5     bit_4.6.0          
+[31] vipor_0.4.7         pkgconfig_2.0.3     beeswarm_0.4.0     
+[34] pillar_1.11.1       gtable_0.3.6        glue_1.8.1         
+[37] data.table_1.18.6.1 Rcpp_1.1.2          xfun_0.62          
+[40] tidyselect_1.2.1    knitr_1.52          farver_2.1.2       
+[43] labeling_0.4.3      compiler_4.6.2      S7_0.2.2           
 ```
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
