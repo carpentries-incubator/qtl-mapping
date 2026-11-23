@@ -21,7 +21,8 @@ phenotype.
 
 ```{r github_load_data, echo=FALSE, warning=FALSE, message=FALSE}
 options(scipen = 1, digits = 3)
-suppressPackageStartupMessages(library(VariantAnnotation))
+BiocManager::install("VariantAnnotation")
+library(VariantAnnotation)
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(ggbeeswarm))
 suppressPackageStartupMessages(library(qtl2))
@@ -69,18 +70,15 @@ log-normalized ratio of these two sets.
 We have prepared two files containing normalized gene expression data and the 
 gene annotation.
 
-```{r load_data_box,include=FALSE}
+```{r load_data_box, eval=FALSE}
 Sys.setenv("VROOM_CONNECTION_SIZE" = 1e6)
 # We need this because the expression files are too big for Github.
-annot <- read_csv("https://thejacksonlaboratory.box.com/shared/static/2hvsoa1bs64ic2zad8isy9qrurzr4svi.csv",
-                 show_col_types = FALSE) |>
-           mutate(a_gene_id = as.character(a_gene_id))
 expr  <- read_csv("https://thejacksonlaboratory.box.com/shared/static/dytobpcmlupvoth4a510zoxbz3wd1v98.csv",
                   show_col_types = FALSE)
 ```
 
 
-```{r load_data_workshop,eval=FALSE}
+```{r load_data_workshop}
 annot <- read_csv("data/attie_b6btbr_grcm39/attie_gene_annot.csv",
                   show_col_types = FALSE) |>
            mutate(a_gene_id = as.character(a_gene_id))
@@ -128,7 +126,7 @@ dim(expr)
 2. Top-left block of `expr`.
 
 ```{r topleft_expr}
-expr[1:5,1:5]
+expr[1:5, 1:5]
 ```
 
 :::::::::::::::::::::::::::::::::
