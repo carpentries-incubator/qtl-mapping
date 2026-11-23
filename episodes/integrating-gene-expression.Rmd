@@ -459,7 +459,7 @@ eqtl_chr19_peaks <- find_peaks(eqtl_chr19, map = cross$pmap) |>
 eqtl_chr19_peaks
 ```
 
-We can see that there are `r nrow(eqtl_chr19_peaks)` significant QTL on 
+We can see that there are r nrow(eqtl_chr19_peaks) significant QTL on 
 chromosome 19. All of these genes are within the support interval of the insulin
 QTL.
 
